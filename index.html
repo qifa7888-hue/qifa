@@ -432,37 +432,40 @@
   </div>
 </footer>
 
+<iframe name="hidden_iframe" id="hidden_iframe" style="display:none;"></iframe>
 <script>
-var GAS_URL = 'https://script.google.com/macros/s/AKfycbxUqTpxEbSigpCcid5D-6FLyIwpcf31_uEMR8Xj0XUZJy_x5lDvUfatN-Zl2sAehBxX/exec';
+var GAS_URL = 'https://script.google.com/macros/s/AKfycby4h8Pewc1lB2RV-mc7De6JWnsGEcF_Qwhm5e5Nlz3IZgHtadlF38nuyJ0l7Xzspolw/exec';
 
 document.getElementById('contactForm').addEventListener('submit', function(e) {
   e.preventDefault();
+
   var btn = this.querySelector('.submit-btn');
   btn.textContent = '送出中...';
   btn.disabled = true;
 
-  var data = {
-    name:     document.getElementById('f_name').value,
-    phone:    document.getElementById('f_phone').value,
-    roomType: document.getElementById('f_roomType').value,
-    budget:   document.getElementById('f_budget').value,
-    city:     document.getElementById('f_city').value,
-    area:     document.getElementById('f_area').value,
-    message:  document.getElementById('f_message').value
-  };
+  var name     = document.getElementById('f_name').value;
+  var phone    = document.getElementById('f_phone').value;
+  var roomType = document.getElementById('f_roomType').value;
+  var budget   = document.getElementById('f_budget').value;
+  var city     = document.getElementById('f_city').value;
+  var area     = document.getElementById('f_area').value;
+  var message  = document.getElementById('f_message').value;
 
-  fetch(GAS_URL, {
-    method: 'POST',
-    mode: 'no-cors',
-    headers: { 'Content-Type': 'application/json' },
-    body: JSON.stringify(data)
-  }).then(function() {
+  var params = 'name=' + encodeURIComponent(name) +
+               '&phone=' + encodeURIComponent(phone) +
+               '&roomType=' + encodeURIComponent(roomType) +
+               '&budget=' + encodeURIComponent(budget) +
+               '&city=' + encodeURIComponent(city) +
+               '&area=' + encodeURIComponent(area) +
+               '&message=' + encodeURIComponent(message);
+
+  var img = new Image();
+  img.src = GAS_URL + '?' + params;
+
+  setTimeout(function() {
     document.getElementById('contactForm').style.display = 'none';
     document.getElementById('successBox').style.display = 'block';
-  }).catch(function() {
-    document.getElementById('contactForm').style.display = 'none';
-    document.getElementById('successBox').style.display = 'block';
-  });
+  }, 1500);
 });
 </script>
 </body>
