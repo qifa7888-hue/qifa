@@ -405,7 +405,8 @@ document.getElementById('contactForm').addEventListener('submit', function(e) {
   fetch('https://script.google.com/macros/s/AKfycbw_aE_nRCG0wOUUc_mrNwYTn8VrzF9r4qtsSExoFnVCrEk0Ju60EEnM-VU7WV5tJUhi/exec', {
     method: 'POST',
     body: JSON.stringify(data),
-    headers: { 'Content-Type': 'application/json' }
+    headers: { 'Content-Type': 'text/plain' },
+    mode: 'no-cors'
   }).then(function() {
     document.getElementById('contactForm').style.display = 'none';
     document.getElementById('successBox').style.display = 'block';
