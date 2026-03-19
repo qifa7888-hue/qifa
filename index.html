@@ -307,7 +307,7 @@
 
       <div>
         <div class="form-box">
-          <form id="contactForm" action="https://script.google.com/macros/s/AKfycbypXUYL-Dr5n-_-9_JFKpBAqnzOK0Qfuzj0bgG0OWZ4lBF9DNyatoVLFnyTRkhe34i2/exec" method="POST">
+          <form id="contactForm" action="https://script.google.com/macros/s/AKfycbxTZW1SiEfi3xMlo0Qk2xR2afJz37_UYssH_jRZig7fXbmg_L0IsVlFiHxM9yP9BKF1/exec" method="POST">
             <div class="form-grid">
               <div class="form-group">
                 <div class="field-label"><span>姓名</span><span class="required">必填</span></div>
@@ -443,11 +443,11 @@ document.getElementById('contactForm').addEventListener('submit', function(e) {
   var data = {};
   formData.forEach(function(value, key) { data[key] = value; });
 
-  fetch('https://script.google.com/macros/s/AKfycbypXUYL-Dr5n-_-9_JFKpBAqnzOK0Qfuzj0bgG0OWZ4lBF9DNyatoVLFnyTRkhe34i2/exec', {
+  fetch('https://script.google.com/macros/s/AKfycbxTZW1SiEfi3xMlo0Qk2xR2afJz37_UYssH_jRZig7fXbmg_L0IsVlFiHxM9yP9BKF1/exec', {
     method: 'POST',
     mode: 'no-cors',
-    headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
-    body: new URLSearchParams(data).toString()
+    headers: { 'Content-Type': 'text/plain' },
+    body: JSON.stringify(data)
   }).then(function() {
     document.getElementById('contactForm').style.display = 'none';
     document.getElementById('successBox').style.display = 'block';
