@@ -266,7 +266,7 @@
 
       <div>
         <div class="form-box">
-          <form id="contactForm" action="https://script.google.com/macros/s/AKfycbw_aE_nRCG0wOUUc_mrNwYTn8VrzF9r4qtsSExoFnVCrEk0Ju60EEnM-VU7WV5tJUhi/exec" method="POST">
+          <form id="contactForm" action="https://script.google.com/macros/s/AKfycbxYrgMXmIHOC0fiEeFaStVs0O-gGIVSl-tVBYV7lZWDcOt68J4FWqFvSXYrzdc9rUY1/exec" method="POST">
             <div class="form-grid">
               <div class="form-group">
                 <div class="field-label"><span>姓名</span><span class="required">必填</span></div>
@@ -403,7 +403,7 @@ document.getElementById('contactForm').addEventListener('submit', function(e) {
   formData.forEach(function(value, key) { data[key] = value; });
 
   var params = new URLSearchParams(data).toString();
-  fetch('https://script.google.com/macros/s/AKfycbw_aE_nRCG0wOUUc_mrNwYTn8VrzF9r4qtsSExoFnVCrEk0Ju60EEnM-VU7WV5tJUhi/exec?' + params, {
+  fetch('https://script.google.com/macros/s/AKfycbxYrgMXmIHOC0fiEeFaStVs0O-gGIVSl-tVBYV7lZWDcOt68J4FWqFvSXYrzdc9rUY1/exec?' + params, {
     method: 'GET',
     mode: 'no-cors'
   }).then(function() {
