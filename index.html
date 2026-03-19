@@ -285,7 +285,7 @@
     <p class="form-title">立即預約</p>
     <p class="form-sub">歡迎預約，將有專人與您聯絡，我們將竭誠為您服務</p>
 
-    <div style="display:grid;grid-template-columns:1fr 1.6fr;gap:3rem;align-items:start;margin-top:2rem;">
+    <div class="form-wrapper">
       <div class="form-aside">
         <h3>專人為您解答<br>任何購屋疑問</h3>
         <p>留下您的資訊，我們的專業顧問將盡快與您聯繫，為您量身規劃最適合的居住方案。</p>
@@ -304,8 +304,84 @@
           </div>
         </div>
       </div>
-      <div style="background:var(--cream);border:1px solid var(--sand);border-radius:16px;overflow:hidden;">
-        <iframe src="https://docs.google.com/forms/d/e/1FAIpQLScapHzglNQroLrax6PyX7Ne_1e63uUByW-ogZk2UJ9eDsG4bA/viewform?embedded=true" width="100%" height="900" frameborder="0" marginheight="0" marginwidth="0" style="display:block;">載入中…</iframe>
+
+      <div>
+        <div class="form-box">
+          <form id="contactForm">
+            <div class="form-grid">
+              <div class="form-group">
+                <div class="field-label"><span>姓名</span><span class="required">必填</span></div>
+                <input id="f_name" type="text" placeholder="姓名" required>
+              </div>
+              <div class="form-group">
+                <div class="field-label"><span>手機</span><span class="required">必填</span></div>
+                <input id="f_phone" type="tel" placeholder="手機" required>
+              </div>
+              <div class="form-group">
+                <div class="field-label"><span>需求房型</span></div>
+                <select id="f_roomType">
+                  <option value="" disabled selected>請選擇房型</option>
+                  <option>4 房</option>
+                  <option>5 房</option>
+                  <option>不限，由專人推薦</option>
+                </select>
+              </div>
+              <div class="form-group">
+                <div class="field-label"><span>購屋預算</span></div>
+                <select id="f_budget">
+                  <option value="" disabled selected>請選擇區間</option>
+                  <option>998萬 ～ 1,200萬</option>
+                  <option>1,200萬 ～ 1,500萬</option>
+                  <option>1,500萬以上</option>
+                </select>
+              </div>
+              <div class="form-group">
+                <div class="field-label"><span>居住縣市</span></div>
+                <select id="f_city">
+                  <option value="" disabled selected>請選擇城市</option>
+                  <option>基隆市</option>
+                  <option>臺北市</option>
+                  <option>新北市</option>
+                  <option>桃園市</option>
+                  <option>新竹市</option>
+                  <option>新竹縣</option>
+                  <option>宜蘭縣</option>
+                  <option>苗栗縣</option>
+                  <option>臺中市</option>
+                  <option>彰化縣</option>
+                  <option>南投縣</option>
+                  <option>雲林縣</option>
+                  <option>嘉義市</option>
+                  <option>嘉義縣</option>
+                  <option>臺南市</option>
+                  <option>高雄市</option>
+                  <option>屏東縣</option>
+                  <option>澎湖縣</option>
+                  <option>花蓮縣</option>
+                  <option>臺東縣</option>
+                  <option>金門縣</option>
+                  <option>連江縣</option>
+                </select>
+              </div>
+              <div class="form-group">
+                <div class="field-label"><span>居住地區</span></div>
+                <input id="f_area" type="text" placeholder="請輸入您的居住地區（例：鳳山區）">
+              </div>
+              <div class="form-group full">
+                <div class="field-label"><span>留言</span></div>
+                <textarea id="f_message" placeholder="請輸入您的留言"></textarea>
+              </div>
+              <div class="checkbox-row">
+                <input type="checkbox" id="agree" required>
+                <label for="agree" style="margin-bottom:0;font-weight:400;">我同意淇發建設收集並處理本表單填寫之個人資料，僅用於後續聯繫服務</label>
+              </div>
+              <button type="submit" class="submit-btn">送出預約申請</button>
+            </div>
+          </form>
+          <div class="success-box" id="successBox">
+            感謝您的預約！我們的專人將盡快與您聯繫。
+          </div>
+        </div>
       </div>
     </div>
   </div>
