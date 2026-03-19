@@ -443,10 +443,13 @@ document.getElementById('contactForm').addEventListener('submit', function(e) {
   var data = {};
   formData.forEach(function(value, key) { data[key] = value; });
 
+  var params = new URLSearchParams(data).toString();
+
   fetch('https://script.google.com/macros/s/AKfycbz7CX7Ve9XynVAMN6zZcatowst6Q9qmKzaVqoHijsIUVXToCyjAH66ajrOid7JWsIdC/exec', {
     method: 'POST',
-    body: JSON.stringify(data),
-    headers: { 'Content-Type': 'application/json' }
+    mode: 'no-cors',
+    body: params,
+    headers: { 'Content-Type': 'application/x-www-form-urlencoded' }
   }).then(function() {
     document.getElementById('contactForm').style.display = 'none';
     document.getElementById('successBox').style.display = 'block';
