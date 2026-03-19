@@ -307,7 +307,7 @@
 
       <div>
         <div class="form-box">
-          <form id="contactForm" action="https://script.google.com/macros/s/AKfycbyjxtyifjqzemzUquMth7byEvXK6z_m8cUaa_UvL59lU0QWkh3lm38sTgFoefOgE7zc/exec" method="POST">
+          <form id="contactForm" action="https://script.google.com/macros/s/AKfycbypXUYL-Dr5n-_-9_JFKpBAqnzOK0Qfuzj0bgG0OWZ4lBF9DNyatoVLFnyTRkhe34i2/exec" method="POST">
             <div class="form-grid">
               <div class="form-group">
                 <div class="field-label"><span>姓名</span><span class="required">必填</span></div>
@@ -443,16 +443,18 @@ document.getElementById('contactForm').addEventListener('submit', function(e) {
   var data = {};
   formData.forEach(function(value, key) { data[key] = value; });
 
-  var params = new URLSearchParams(data).toString();
-  var url = 'https://script.google.com/macros/s/AKfycbyjxtyifjqzemzUquMth7byEvXK6z_m8cUaa_UvL59lU0QWkh3lm38sTgFoefOgE7zc/exec?' + params;
-
-  var img = new Image();
-  img.src = url;
-
-  setTimeout(function() {
+  fetch('https://script.google.com/macros/s/AKfycbypXUYL-Dr5n-_-9_JFKpBAqnzOK0Qfuzj0bgG0OWZ4lBF9DNyatoVLFnyTRkhe34i2/exec', {
+    method: 'POST',
+    mode: 'no-cors',
+    headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
+    body: new URLSearchParams(data).toString()
+  }).then(function() {
     document.getElementById('contactForm').style.display = 'none';
     document.getElementById('successBox').style.display = 'block';
-  }, 1500);
+  }).catch(function() {
+    document.getElementById('contactForm').style.display = 'none';
+    document.getElementById('successBox').style.display = 'block';
+  });
 });
 </script>
 </body>
