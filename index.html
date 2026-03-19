@@ -212,8 +212,8 @@
       <span class="hero-pill">4-5 套房</span>
       <span class="hero-pill">三層樓透天</span>
       <span class="hero-pill">戶戶開窗</span>
-      <span class="hero-pill">現房落成</span>
-      <span class="hero-pill">即刻輕鬆入住</span>
+      <span class="hero-pill">即將完工</span>
+      <span class="hero-pill">搶先預約</span>
       <span class="hero-pill">地標美學建築</span>
     </div>
     <div class="hero-btns">
@@ -232,14 +232,14 @@
     <div class="features-grid">
       <div class="feature-card">
         <div class="feature-icon">
-          <svg viewBox="0 0 24 24"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
+          <svg viewBox="0 0 24 24"><rect x="3" y="3" width="18" height="18" rx="2"/><path d="M3 9h18M9 21V9"/></svg>
         </div>
-        <p class="feature-title">現房交屋</p>
-        <p class="feature-desc">無需等待，即刻入住。完工實品屋，所見即所得，安心無虞。</p>
+        <p class="feature-title">即將完工</p>
+        <p class="feature-desc">建案即將完工交屋，搶先預約參觀，把握限量名額，提前鎖定您的理想好宅。</p>
       </div>
       <div class="feature-card">
         <div class="feature-icon">
-          <svg viewBox="0 0 24 24"><rect x="3" y="3" width="18" height="18" rx="2"/><path d="M3 9h18M9 21V9"/></svg>
+          <svg viewBox="0 0 24 24"><path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"/><polyline points="9 22 9 12 15 12 15 22"/></svg>
         </div>
         <p class="feature-title">地標美學設計</p>
         <p class="feature-desc">現代美墅Villa風格，外觀氣派典雅，成為區域指標建築。</p>
@@ -427,8 +427,8 @@
   <p class="footer-logo-text" style="font-family:'Noto Serif TC',serif;font-size:18px;font-weight:700;color:rgba(255,255,255,0.9);margin-bottom:0.5rem;letter-spacing:0.08em;">淇發建設有限公司</p>
   <p class="footer-copy">© 2022 淇發建設有限公司 &nbsp;·&nbsp; 統編 90271186</p>
   <div class="footer-links">
-    <a href="#">隱私政策</a>
-    <a href="#">服務條款</a>
+    <a href="#" onclick="document.getElementById('privacyModal').style.display='flex'; return false;">隱私政策</a>
+    <a href="https://www.notion.so/3056fdabd082800fa5a5cd4f62c67ab9" target="_blank">服務條款</a>
   </div>
 </footer>
 
@@ -457,5 +457,48 @@ document.getElementById('contactForm').addEventListener('submit', function(e) {
   });
 });
 </script>
+
+<div id="privacyModal" style="display:none; position:fixed; inset:0; background:rgba(0,0,0,0.5); z-index:9999; align-items:center; justify-content:center; padding:1rem;">
+  <div style="background:#FAF6EF; border-radius:16px; max-width:700px; width:100%; max-height:85vh; overflow-y:auto; padding:2.5rem; position:relative;">
+    <button onclick="document.getElementById('privacyModal').style.display='none'" style="position:absolute; top:1rem; right:1rem; background:none; border:none; font-size:1.5rem; cursor:pointer; color:#4A3728;">✕</button>
+    <h2 style="font-family:'Noto Serif TC',serif; color:#4A3728; margin-bottom:1.5rem; font-size:1.3rem;">淇發建設股份有限公司｜隱私權保護聲明</h2>
+    <div style="font-size:14px; color:#2E2318; line-height:2;">
+      <p style="margin-bottom:1rem;">歡迎您訪問淇發建設有限公司官方網站。本公司極為重視您的個人隱私權，並承諾依據中華民國《個人資料保護法》及相關法律規範，保護您的個人資料安全。</p>
+      <p style="margin-bottom:1rem;">為了讓您能安心使用本網站提供的各項服務，我們制定了本隱私權政策（以下簡稱「本政策」），請您詳閱以下內容：</p>
+      <h3 style="color:#4A3728; margin:1.5rem 0 0.5rem;">一、政策適用範疇</h3>
+      <p style="margin-bottom:1rem;">本政策涵蓋本公司網站如何處理您在進行互動（如預約賞屋、聯絡我們）時所留下的個人識別資料。本政策不適用於本網站以外的連結網站，亦不適用於非本公司所委託或管理之人員。</p>
+      <h3 style="color:#4A3728; margin:1.5rem 0 0.5rem;">二、個人資料之蒐集與分類</h3>
+      <p style="margin-bottom:0.5rem;">根據您使用的服務性質，我們蒐集的資料類型如下：</p>
+      <p style="margin-bottom:0.5rem;">1. 主動提供資料：當您使用「預約賞屋」、「聯絡我們」或「訂閱資訊」等功能時，我們會請您提供姓名、聯絡電話、電子郵件地址及需求意向。</p>
+      <p style="margin-bottom:1rem;">2. 自動記錄資料：當您瀏覽網頁時，伺服器會自動記錄您的連線資訊，包括但不限於：IP 位址、使用時間、瀏覽器類型、點選紀錄等。此類資訊僅供本公司優化網站體驗之內部統計使用。</p>
+      <h3 style="color:#4A3728; margin:1.5rem 0 0.5rem;">三、資料的使用目的與期限</h3>
+      <p style="margin-bottom:0.5rem;">我們所蒐集的資料將僅用於以下用途：</p>
+      <p style="margin-bottom:0.5rem;">・客戶管理與服務：回應您的諮詢、安排建案導覽或提供相關售後服務。</p>
+      <p style="margin-bottom:0.5rem;">・行銷推廣：在取得您的同意後，提供本公司之建案動態或活動資訊。</p>
+      <p style="margin-bottom:1rem;">・利用期限：除法令另有規定外，資料將於蒐集目的存續期間或因執行業務所需之保存期間內使用。</p>
+      <h3 style="color:#4A3728; margin:1.5rem 0 0.5rem;">四、資料安全與防護機制</h3>
+      <p style="margin-bottom:0.5rem;">・技術保護：本公司網站採用嚴格的資安防護系統（如防火牆、加密傳輸），防止您的個資遭受未經授權的存取。</p>
+      <p style="margin-bottom:0.5rem;">・權限管理：僅限受過個資保護培訓的授權人員方可接觸資料。所有相關人員均簽署保密協議，若有違規行為，將承擔法律責任。</p>
+      <p style="margin-bottom:1rem;">・委外監督：若因業務需求委託第三方（如廣告代理商、物管公司）處理資料，本公司將嚴格審核其資安能力，並要求其履行保密義務。</p>
+      <h3 style="color:#4A3728; margin:1.5rem 0 0.5rem;">五、第三方共用規範</h3>
+      <p style="margin-bottom:0.5rem;">本公司絕對不會將您的個人資料出租、交換或出售給任何無關之第三方。但在以下例外情況下，我們將依誠實信用原則揭露必要資料：</p>
+      <p style="margin-bottom:0.5rem;">1. 法律要求：配合司法單位或政府機關之法定調查。</p>
+      <p style="margin-bottom:0.5rem;">2. 緊急避難：為維護您或其他使用者之生命、財產安全。</p>
+      <p style="margin-bottom:1rem;">3. 合作夥伴：為完成您要求的服務（如房貸試算、房屋修繕），需將必要資訊提供給特定合作廠商（如銀行或營造單位）。</p>
+      <h3 style="color:#4A3728; margin:1.5rem 0 0.5rem;">六、數位技術之運用（Cookie）</h3>
+      <p style="margin-bottom:0.5rem;">本網站使用 Cookie 技術來辨識您的偏好並提供個人化體驗。</p>
+      <p style="margin-bottom:0.5rem;">・什麼是 Cookie？這是一種存放於您裝置中的微小文字檔，能幫助網站記住您的訪問習慣。</p>
+      <p style="margin-bottom:1rem;">・管理方式：您可隨時透過瀏覽器設定拒絕 Cookie 的讀取，但這可能導致網站部分互動功能（如填單自動帶入資訊）無法正常運行。</p>
+      <h3 style="color:#4A3728; margin:1.5rem 0 0.5rem;">七、您的權利行使</h3>
+      <p style="margin-bottom:0.5rem;">依據個資法，您針對提供的資料享有以下權利：</p>
+      <p style="margin-bottom:0.5rem;">・查詢或請求閱覽、製給複製本。</p>
+      <p style="margin-bottom:0.5rem;">・補充或更正。</p>
+      <p style="margin-bottom:1rem;">・請求停止蒐集、處理、利用或刪除。</p>
+      <p style="margin-bottom:1rem;">如欲行使上述權利，請透過官網公告之聯繫電話或電子郵件與我們聯繫。</p>
+      <h3 style="color:#4A3728; margin:1.5rem 0 0.5rem;">八、聲明之修訂</h3>
+      <p>本隱私權政策將隨法令更迭或公司內部管理需求不定期修訂，修正後的條款將即時公告於本網站，不另行個別通知。</p>
+    </div>
+  </div>
+</div>
 </body>
 </html>
