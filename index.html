@@ -307,19 +307,19 @@
 
       <div>
         <div class="form-box">
-          <form id="contactForm">
+          <form id="contactForm" action="https://script.google.com/macros/s/AKfycbz7CX7Ve9XynVAMN6zZcatowst6Q9qmKzaVqoHijsIUVXToCyjAH66ajrOid7JWsIdC/exec" method="POST">
             <div class="form-grid">
               <div class="form-group">
                 <div class="field-label"><span>姓名</span><span class="required">必填</span></div>
-                <input id="f_name" type="text" placeholder="姓名" required>
+                <input id="f_name" name="姓名" type="text" placeholder="姓名" required>
               </div>
               <div class="form-group">
                 <div class="field-label"><span>手機</span><span class="required">必填</span></div>
-                <input id="f_phone" type="tel" placeholder="手機" required>
+                <input id="f_phone" name="手機" type="tel" placeholder="手機" required>
               </div>
               <div class="form-group">
                 <div class="field-label"><span>需求房型</span></div>
-                <select id="f_roomType">
+                <select id="f_roomType" name="需求房型">
                   <option value="" disabled selected>請選擇房型</option>
                   <option>4 房</option>
                   <option>5 房</option>
@@ -328,7 +328,7 @@
               </div>
               <div class="form-group">
                 <div class="field-label"><span>購屋預算</span></div>
-                <select id="f_budget">
+                <select id="f_budget" name="購屋預算">
                   <option value="" disabled selected>請選擇區間</option>
                   <option>998萬 ～ 1,200萬</option>
                   <option>1,200萬 ～ 1,500萬</option>
@@ -337,7 +337,7 @@
               </div>
               <div class="form-group">
                 <div class="field-label"><span>居住縣市</span></div>
-                <select id="f_city">
+                <select id="f_city" name="居住縣市">
                   <option value="" disabled selected>請選擇城市</option>
                   <option>基隆市</option>
                   <option>臺北市</option>
@@ -365,11 +365,11 @@
               </div>
               <div class="form-group">
                 <div class="field-label"><span>居住地區</span></div>
-                <input id="f_area" type="text" placeholder="請輸入您的居住地區（例：鳳山區）">
+                <input id="f_area" name="居住地區" type="text" placeholder="請輸入您的居住地區（例：鳳山區）">
               </div>
               <div class="form-group full">
                 <div class="field-label"><span>留言</span></div>
-                <textarea id="f_message" placeholder="請輸入您的留言"></textarea>
+                <textarea id="f_message" name="留言" placeholder="請輸入您的留言"></textarea>
               </div>
               <div class="checkbox-row">
                 <input type="checkbox" id="agree" required>
@@ -433,34 +433,27 @@
 </footer>
 
 <script>
-var GAS_URL = 'https://script.google.com/macros/s/AKfycbzgC4iYRXFRYNBqqm6d8X3vbzKII0dravWJH0Al6Dr4ZeQcVMWnntKIV1it_9MlY0Ln/exec';
-
 document.getElementById('contactForm').addEventListener('submit', function(e) {
   e.preventDefault();
-
   var btn = this.querySelector('.submit-btn');
   btn.textContent = '送出中...';
   btn.disabled = true;
 
-  var formData = new FormData();
-  formData.append('name',     document.getElementById('f_name').value);
-  formData.append('phone',    document.getElementById('f_phone').value);
-  formData.append('roomType', document.getElementById('f_roomType').value);
-  formData.append('budget',   document.getElementById('f_budget').value);
-  formData.append('city',     document.getElementById('f_city').value);
-  formData.append('area',     document.getElementById('f_area').value);
-  formData.append('message',  document.getElementById('f_message').value);
+  var formData = new FormData(this);
+  var data = {};
+  formData.forEach(function(value, key) { data[key] = value; });
 
-  fetch(GAS_URL, {
+  fetch('https://script.google.com/macros/s/AKfycbz7CX7Ve9XynVAMN6zZcatowst6Q9qmKzaVqoHijsIUVXToCyjAH66ajrOid7JWsIdC/exec', {
     method: 'POST',
-    mode: 'no-cors',
-    body: formData
+    body: JSON.stringify(data),
+    headers: { 'Content-Type': 'application/json' }
   }).then(function() {
     document.getElementById('contactForm').style.display = 'none';
     document.getElementById('successBox').style.display = 'block';
   }).catch(function() {
-    document.getElementById('contactForm').style.display = 'none';
-    document.getElementById('successBox').style.display = 'block';
+    btn.textContent = '送出預約申請';
+    btn.disabled = false;
+    alert('網路錯誤，請稍後再試。');
   });
 });
 </script>
