@@ -432,9 +432,8 @@
   </div>
 </footer>
 
-<iframe name="hidden_iframe" id="hidden_iframe" style="display:none;"></iframe>
 <script>
-var GAS_URL = 'https://script.google.com/macros/s/AKfycby4h8Pewc1lB2RV-mc7De6JWnsGEcF_Qwhm5e5Nlz3IZgHtadlF38nuyJ0l7Xzspolw/exec';
+var GAS_URL = 'https://script.google.com/macros/s/AKfycbzgC4iYRXFRYNBqqm6d8X3vbzKII0dravWJH0Al6Dr4ZeQcVMWnntKIV1it_9MlY0Ln/exec';
 
 document.getElementById('contactForm').addEventListener('submit', function(e) {
   e.preventDefault();
@@ -443,29 +442,26 @@ document.getElementById('contactForm').addEventListener('submit', function(e) {
   btn.textContent = '送出中...';
   btn.disabled = true;
 
-  var name     = document.getElementById('f_name').value;
-  var phone    = document.getElementById('f_phone').value;
-  var roomType = document.getElementById('f_roomType').value;
-  var budget   = document.getElementById('f_budget').value;
-  var city     = document.getElementById('f_city').value;
-  var area     = document.getElementById('f_area').value;
-  var message  = document.getElementById('f_message').value;
+  var formData = new FormData();
+  formData.append('name',     document.getElementById('f_name').value);
+  formData.append('phone',    document.getElementById('f_phone').value);
+  formData.append('roomType', document.getElementById('f_roomType').value);
+  formData.append('budget',   document.getElementById('f_budget').value);
+  formData.append('city',     document.getElementById('f_city').value);
+  formData.append('area',     document.getElementById('f_area').value);
+  formData.append('message',  document.getElementById('f_message').value);
 
-  var params = 'name=' + encodeURIComponent(name) +
-               '&phone=' + encodeURIComponent(phone) +
-               '&roomType=' + encodeURIComponent(roomType) +
-               '&budget=' + encodeURIComponent(budget) +
-               '&city=' + encodeURIComponent(city) +
-               '&area=' + encodeURIComponent(area) +
-               '&message=' + encodeURIComponent(message);
-
-  var img = new Image();
-  img.src = GAS_URL + '?' + params;
-
-  setTimeout(function() {
+  fetch(GAS_URL, {
+    method: 'POST',
+    mode: 'no-cors',
+    body: formData
+  }).then(function() {
     document.getElementById('contactForm').style.display = 'none';
     document.getElementById('successBox').style.display = 'block';
-  }, 1500);
+  }).catch(function() {
+    document.getElementById('contactForm').style.display = 'none';
+    document.getElementById('successBox').style.display = 'block';
+  });
 });
 </script>
 </body>
