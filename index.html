@@ -207,10 +207,7 @@
     <div class="hero-tag">淇發建設 · 全新推案</div>
     <h1 class="hero-project-name">詠旭</h1>
     <p class="hero-project-sub">Awake in Bright</p>
-    <div class="hero-price-block">
-      <p class="hero-price-label">首期價格</p>
-      <p class="hero-price">998萬 <span>起</span></p>
-    </div>
+
     <div class="hero-tags">
       <span class="hero-pill">4-5 套房</span>
       <span class="hero-pill">三層樓透天</span>
@@ -314,15 +311,15 @@
             <div class="form-grid">
               <div class="form-group">
                 <div class="field-label"><span>姓名</span><span class="required">必填</span></div>
-                <input type="text" placeholder="姓名" required>
+                <input id="f_name" type="text" placeholder="姓名" required>
               </div>
               <div class="form-group">
                 <div class="field-label"><span>手機</span><span class="required">必填</span></div>
-                <input type="tel" placeholder="手機" required>
+                <input id="f_phone" type="tel" placeholder="手機" required>
               </div>
               <div class="form-group">
                 <div class="field-label"><span>需求房型</span></div>
-                <select>
+                <select id="f_roomType">
                   <option value="" disabled selected>請選擇房型</option>
                   <option>4 房</option>
                   <option>5 房</option>
@@ -331,7 +328,7 @@
               </div>
               <div class="form-group">
                 <div class="field-label"><span>購屋預算</span></div>
-                <select>
+                <select id="f_budget">
                   <option value="" disabled selected>請選擇區間</option>
                   <option>998萬 ～ 1,200萬</option>
                   <option>1,200萬 ～ 1,500萬</option>
@@ -340,7 +337,7 @@
               </div>
               <div class="form-group">
                 <div class="field-label"><span>居住縣市</span></div>
-                <select>
+                <select id="f_city">
                   <option value="" disabled selected>請選擇城市</option>
                   <option>基隆市</option>
                   <option>臺北市</option>
@@ -368,11 +365,11 @@
               </div>
               <div class="form-group">
                 <div class="field-label"><span>居住地區</span></div>
-                <input type="text" placeholder="請輸入您的居住地區（例：鳳山區）">
+                <input id="f_area" type="text" placeholder="請輸入您的居住地區（例：鳳山區）">
               </div>
               <div class="form-group full">
                 <div class="field-label"><span>留言</span></div>
-                <textarea placeholder="請輸入您的留言"></textarea>
+                <textarea id="f_message" placeholder="請輸入您的留言"></textarea>
               </div>
               <div class="checkbox-row">
                 <input type="checkbox" id="agree" required>
@@ -395,9 +392,30 @@
   <div class="container">
     <p class="section-eyebrow">交通位置</p>
     <h2>建案地點</h2>
-    <div class="map-frame">
-      <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d29484.532954756272!2d120.41423787431638!3d22.52043769999999!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x346e1f0032bdefc5%3A0xf5165c6ddee575fb!2z5reH55m86Kmg5pet5bu656-J5Z-65Zyw!5e0!3m2!1szh-TW!2stw!4v1773883488773!5m2!1szh-TW!2stw" width="600" height="450" style="border:0;" allowfullscreen loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+    <div class="map-frame" style="position:relative;">
+      <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d29484.532954756272!2d120.41423787431638!3d22.52043769999999!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x346e1f0032bdefc5%3A0xf5165c6ddee575fb!2z5reH55m86Kmg5pet5bu656-J5Z-65Zyw!5e0!3m2!1szh-TW!2stw!4v1773883488773!5m2!1szh-TW!2stw" width="600" height="450" style="border:0;width:100%;height:400px;display:block;" allowfullscreen loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+      <div style="position:absolute;inset:0;display:flex;align-items:center;justify-content:center;background:var(--sand);border-radius:12px;" id="mapFallback">
+        <div style="text-align:center;padding:2rem;">
+          <svg width="48" height="48" viewBox="0 0 24 24" fill="none" stroke="var(--earth-dark)" stroke-width="1.5" style="margin-bottom:1rem;display:block;margin-left:auto;margin-right:auto;"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg>
+          <p style="font-family:'Noto Serif TC',serif;font-size:16px;font-weight:700;color:var(--bark);margin-bottom:0.5rem;">詠旭 · 建案位置</p>
+          <p style="font-size:13px;color:var(--text-muted);margin-bottom:1.25rem;">屏東縣高樹鄉</p>
+          <a href="https://maps.app.goo.gl/MbGetbBRe1TE1pak8" target="_blank" style="background:var(--earth);color:var(--cream);padding:10px 24px;border-radius:8px;text-decoration:none;font-size:14px;font-weight:500;">開啟 Google 地圖 →</a>
+        </div>
+      </div>
     </div>
+    <script>
+      (function(){
+        var iframe = document.querySelector('.map-frame iframe');
+        var fallback = document.getElementById('mapFallback');
+        if(iframe){
+          iframe.onload = function(){ fallback.style.display='none'; };
+          iframe.onerror = function(){ fallback.style.display='flex'; };
+          setTimeout(function(){
+            try{ if(!iframe.contentDocument) fallback.style.display='none'; }catch(e){ fallback.style.display='none'; }
+          }, 3000);
+        }
+      })();
+    </script>
   </div>
 </section>
 
@@ -415,10 +433,36 @@
 </footer>
 
 <script>
+var GAS_URL = 'https://script.google.com/macros/s/AKfycbws2iWQD3cyBgFiZY9Rgh0ItlVy9Ndyr916iCJJpIEISTOMPVaAyCMp5M4bZRMyecno/exec';
+
 document.getElementById('contactForm').addEventListener('submit', function(e) {
   e.preventDefault();
-  this.style.display = 'none';
-  document.getElementById('successBox').style.display = 'block';
+  var btn = this.querySelector('.submit-btn');
+  btn.textContent = '送出中...';
+  btn.disabled = true;
+
+  var data = {
+    name:     document.getElementById('f_name').value,
+    phone:    document.getElementById('f_phone').value,
+    roomType: document.getElementById('f_roomType').value,
+    budget:   document.getElementById('f_budget').value,
+    city:     document.getElementById('f_city').value,
+    area:     document.getElementById('f_area').value,
+    message:  document.getElementById('f_message').value
+  };
+
+  fetch(GAS_URL, {
+    method: 'POST',
+    mode: 'no-cors',
+    headers: { 'Content-Type': 'application/json' },
+    body: JSON.stringify(data)
+  }).then(function() {
+    document.getElementById('contactForm').style.display = 'none';
+    document.getElementById('successBox').style.display = 'block';
+  }).catch(function() {
+    document.getElementById('contactForm').style.display = 'none';
+    document.getElementById('successBox').style.display = 'block';
+  });
 });
 </script>
 </body>
