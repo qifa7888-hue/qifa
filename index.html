@@ -307,7 +307,7 @@
 
       <div>
         <div class="form-box">
-          <form id="contactForm" action="https://script.google.com/macros/s/AKfycbz7CX7Ve9XynVAMN6zZcatowst6Q9qmKzaVqoHijsIUVXToCyjAH66ajrOid7JWsIdC/exec" method="POST">
+          <form id="contactForm" action="https://script.google.com/macros/s/AKfycbz65uz4qfY0z64TeEP0HCwcuXCigY0Ft1xnGvEhoKsBVbzV6Ghsa3TRGlGR59xnXaJc/exec" method="POST">
             <div class="form-grid">
               <div class="form-group">
                 <div class="field-label"><span>姓名</span><span class="required">必填</span></div>
@@ -444,20 +444,15 @@ document.getElementById('contactForm').addEventListener('submit', function(e) {
   formData.forEach(function(value, key) { data[key] = value; });
 
   var params = new URLSearchParams(data).toString();
+  var url = 'https://script.google.com/macros/s/AKfycbz65uz4qfY0z64TeEP0HCwcuXCigY0Ft1xnGvEhoKsBVbzV6Ghsa3TRGlGR59xnXaJc/exec?' + params;
 
-  fetch('https://script.google.com/macros/s/AKfycbz7CX7Ve9XynVAMN6zZcatowst6Q9qmKzaVqoHijsIUVXToCyjAH66ajrOid7JWsIdC/exec', {
-    method: 'POST',
-    mode: 'no-cors',
-    body: params,
-    headers: { 'Content-Type': 'application/x-www-form-urlencoded' }
-  }).then(function() {
+  var img = new Image();
+  img.src = url;
+
+  setTimeout(function() {
     document.getElementById('contactForm').style.display = 'none';
     document.getElementById('successBox').style.display = 'block';
-  }).catch(function() {
-    btn.textContent = '送出預約申請';
-    btn.disabled = false;
-    alert('網路錯誤，請稍後再試。');
-  });
+  }, 1500);
 });
 </script>
 </body>
