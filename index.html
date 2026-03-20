@@ -132,6 +132,7 @@
   /* SPEC */
   .spec-section { padding: 4rem 2rem; background: var(--cream); }
   .spec-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 0.75rem; margin-top: 1.5rem; }
+  @media (max-width: 560px) { .spec-grid { grid-template-columns: repeat(2, 1fr); } }
   .spec-card { background: var(--warm-white); border: 1px solid var(--sand); border-radius: 10px; padding: 1.25rem; text-align: center; }
   .spec-num { font-family: 'Noto Serif TC', serif; font-size: 1.6rem; font-weight: 700; color: var(--earth); display: block; margin-bottom: 4px; }
   .spec-label { font-size: 13px; color: var(--text-muted); }
