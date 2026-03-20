@@ -37,13 +37,13 @@
     background: rgba(250,246,239,0.93);
     backdrop-filter: blur(8px);
     border-bottom: 1px solid var(--sand);
-    padding: 0 2rem;
+    padding: 0 3rem;
     height: 64px;
     display: flex; align-items: center; justify-content: space-between;
   }
   .nav-logo { margin-right: auto; }
   .nav-logo img { height: 36px; object-fit: contain; }
-  .nav-links { display: flex; gap: 2rem; list-style: none; }
+  .nav-links { display: flex; gap: 3rem; list-style: none; margin: 0 3rem; }
   .nav-links a { text-decoration: none; font-size: 14px; color: var(--text-muted); letter-spacing: 0.03em; transition: color .2s; }
   .nav-links a:hover { color: var(--earth); }
   .nav-cta { background: var(--earth); color: var(--cream); padding: 8px 20px; border-radius: 6px; text-decoration: none; font-size: 14px; font-weight: 500; transition: background .2s; }
@@ -130,19 +130,21 @@
   .feature-desc { font-size: 14px; color: var(--text-muted); line-height: 1.8; }
 
   /* SPEC */
-  .spec-section { padding: 6rem 2rem; background: var(--cream); }
-  .spec-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(160px, 1fr)); gap: 1rem; margin-top: 2.5rem; }
-  .spec-card { background: var(--warm-white); border: 1px solid var(--sand); border-radius: 10px; padding: 1.5rem; text-align: center; }
-  .spec-num { font-family: 'Noto Serif TC', serif; font-size: 2rem; font-weight: 700; color: var(--earth); display: block; margin-bottom: 4px; }
+  .spec-section { padding: 4rem 2rem; background: var(--cream); }
+  .spec-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 0.75rem; margin-top: 1.5rem; }
+  .spec-card { background: var(--warm-white); border: 1px solid var(--sand); border-radius: 10px; padding: 1.25rem; text-align: center; }
+  .spec-num { font-family: 'Noto Serif TC', serif; font-size: 1.6rem; font-weight: 700; color: var(--earth); display: block; margin-bottom: 4px; }
   .spec-label { font-size: 13px; color: var(--text-muted); }
 
   /* FORM */
-  .form-section { background: var(--warm-white); padding: 6rem 2rem; }
-  .form-wrapper { display: grid; grid-template-columns: 1fr 1.4fr; gap: 4rem; align-items: start; margin-top: 3rem; }
+  .form-section { background: var(--warm-white); padding: 3rem 2rem; }
+  .form-wrapper { display: grid; grid-template-columns: 1fr; gap: 2rem; align-items: start; margin-top: 3rem; }
   @media (max-width: 720px) { .form-wrapper { grid-template-columns: 1fr; gap: 2rem; } }
   .form-aside h3 { font-family: 'Noto Serif TC', serif; font-size: 22px; font-weight: 700; color: var(--bark); margin-bottom: 1rem; }
   .form-aside p { font-size: 14px; color: var(--text-muted); line-height: 1.9; margin-bottom: 1.5rem; }
-  .contact-info { display: flex; flex-direction: column; gap: 1rem; }
+  .contact-info { display: flex; flex-direction: row; gap: 2rem; flex-wrap: wrap; margin-top: 1.5rem; }
+  .form-aside h3 { display: none; }
+  .form-aside > p { display: none; }
   .contact-item { display: flex; align-items: center; gap: 12px; font-size: 14px; color: var(--text-muted); }
   .contact-item-icon { width: 36px; height: 36px; background: var(--sand); border-radius: 8px; flex-shrink: 0; display: flex; align-items: center; justify-content: center; }
   .contact-item-icon svg { width: 16px; height: 16px; stroke: var(--earth-dark); fill: none; stroke-width: 2; }
@@ -226,9 +228,10 @@
 <!-- SPEC -->
 <section class="spec-section" id="spec">
   <div class="container">
-    <p class="section-eyebrow">建案規格</p>
-    <h2>詠旭 · 透天Villa 規格一覽</h2>
-    <p class="section-desc">精心規劃的12戶透天社區，打造您理想中的美好生活。</p>
+    <div style="display:flex;align-items:center;gap:1rem;margin-bottom:1rem;">
+      <p class="section-eyebrow" style="margin-bottom:0;">建案規格</p>
+      <h2 style="font-size:1.1rem;font-weight:600;color:var(--bark);margin:0;">詠旭 · 透天Villa 規格一覽</h2>
+    </div>
     <div class="spec-grid">
       <div class="spec-card"><span class="spec-num">12</span><span class="spec-label">戶數（限量）</span></div>
       <div class="spec-card"><span class="spec-num">3F</span><span class="spec-label">樓層高度</span></div>
@@ -247,25 +250,6 @@
     <p class="form-sub">歡迎預約，將有專人與您聯絡，我們將竭誠為您服務</p>
 
     <div class="form-wrapper">
-      <div class="form-aside">
-        <h3>專人為您解答<br>任何購屋疑問</h3>
-        <p>留下您的資訊，我們的專業顧問將盡快與您聯繫，為您量身規劃最適合的居住方案。</p>
-        <div class="contact-info">
-          <div class="contact-item">
-            <div class="contact-item-icon">
-              <svg viewBox="0 0 24 24"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07A19.5 19.5 0 0 1 4.69 12 19.79 19.79 0 0 1 1.61 3.3 2 2 0 0 1 3.6 1h3a2 2 0 0 1 2 1.72c.127.96.361 1.903.7 2.81a2 2 0 0 1-.45 2.11L7.91 8.6a16 16 0 0 0 6 6l.92-.92a2 2 0 0 1 2.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0 1 21.72 16z"/></svg>
-            </div>
-            0978-300-818
-          </div>
-          <div class="contact-item">
-            <div class="contact-item-icon">
-              <svg viewBox="0 0 24 24"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg>
-            </div>
-            淇發建設有限公司
-          </div>
-        </div>
-      </div>
-
       <div>
         <div class="form-box">
           <form id="contactForm" action="https://script.google.com/macros/s/AKfycbxYrgMXmIHOC0fiEeFaStVs0O-gGIVSl-tVBYV7lZWDcOt68J4FWqFvSXYrzdc9rUY1/exec" method="POST">
@@ -341,6 +325,24 @@
           </form>
           <div class="success-box" id="successBox">
             感謝您的預約！我們的專人將盡快與您聯繫。
+          </div>
+        </div>
+        <div class="contact-info" style="justify-content:center;margin-top:2rem;flex-direction:column;align-items:center;text-align:center;gap:1rem;">
+          <p style="font-family:'Noto Serif TC',serif;font-size:18px;font-weight:700;color:var(--bark);">有任何疑問？歡迎與我們聯繫</p>
+          <p style="font-size:13px;color:var(--text-muted);">專業顧問為您解答購屋疑問，歡迎來電或透過 Facebook 私訊洽詢。</p>
+          <div style="display:flex;gap:2rem;flex-wrap:wrap;justify-content:center;margin-top:0.5rem;">
+          <div class="contact-item">
+            <div class="contact-item-icon">
+              <svg viewBox="0 0 24 24"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07A19.5 19.5 0 0 1 4.69 12 19.79 19.79 0 0 1 1.61 3.3 2 2 0 0 1 3.6 1h3a2 2 0 0 1 2 1.72c.127.96.361 1.903.7 2.81a2 2 0 0 1-.45 2.11L7.91 8.6a16 16 0 0 0 6 6l.92-.92a2 2 0 0 1 2.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0 1 21.72 16z"/></svg>
+            </div>
+            0978-300-818
+          </div>
+          <div class="contact-item">
+            <div class="contact-item-icon">
+              <svg viewBox="0 0 24 24"><path d="M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 0 1 1-1h3z"/></svg>
+            </div>
+            <a href="https://www.facebook.com/profile.php?id=61578833014291" target="_blank" style="color:var(--text-muted);text-decoration:none;">淇發建設有限公司</a>
+          </div>
           </div>
         </div>
       </div>
